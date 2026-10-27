@@ -1,0 +1,31 @@
+
+* {
+    scrollbar-width: 4px;
+}
+
+*::-webkit-scrollbar {
+    width: 4px;
+    background: #6248F4;
+}
+
+*::-webkit-scrollbar-track {
+    background: #1C174D;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #6248F4;
+}
+
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+label {
+    cursor: pointer;
+}
+
+[data-disable-btn = "true"] {
+    cursor: none !important;
+    background: #b5a9fa !important;
+}
