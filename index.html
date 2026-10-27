@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="grid place-items-center min-h-screen bg-[#09043C]">
+
+    <!-- loading button -->
+    <button id="loading" type="button" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled>
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
+        </svg>
+      Processing...
+    </button>
+
+    <main class="w-[80%] max-w-[600px] text-white">
+
+        <!-- upload the file -->
+        <section id="select-file" class="bg-[#1C174D] rounded-lg py-10 text-center">
+
+            <h3 class="font-bold text-lg mb-2">Upload Photos and Videos</h3>
+            <p class="text-sm mb-10">We are glad you decided to join <br> our cause!</p>
+
+            <div id="file-drop-area" class="border-2 border-dashed border-[#484378] rounded-lg w-[70%] mx-auto py-10">
+
+                <input class="hidden" type="file" id="file-input" accept="image/*, video/*">
+                <label for="file-input" class="block w-fit mx-auto rounded-lg px-10 py-2 mb-2 bg-[#6248F4] font-semibold">Browse</label>
+
+                <p class="text-sm text-[#484378]">or drag and drop</p>
+            </div>
+
+        </section>
+
+        <section id="file-details" class="hidden grid sm:grid-cols-2 gap-4 sm:gap-0 bg-[#1C174D] rounded-lg p-10 text-center">
+            <img id="selected-file" class="size-52 rounded-2xl object-cover" src="" alt="">
+
+            <div class="flex flex-col items-start">
+                <label class="text-sm mb-1" for="file-name">Name your file</label>
+                <input class="bg-transparent border border-[#484378] rounded-sm p-2 mb-5 w-full text-sm" type="text" id="file-name" placeholder="Please enter a name for the file">
+
+                <label class="text-sm mb-1" for="file-location">Location (optional)</label>
+                <input class="bg-transparent border border-[#484378] rounded-sm p-2 w-full mb-5 text-sm" type="text" id="file-location" placeholder="Eg. In a tree, in a car">
+
+                <label class="text-sm mb-1" for="file-tags">Tags (optional)</label>
+                <div id="tag-list" class="bg-transparent border border-[#484378] rounded-sm p-2 w-full h-auto max-h-[75px] overflow-y-auto mb-5 flex items-center gap-3 flex-wrap">
+                    <button id="create-tag" class="bg-[#6248F4] rounded-md size-7 grid place-items-center ">
+                        <svg width="22" height="22"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 5l0 14" />
+                        <path d="M5 12l14 0" />
+                        </svg>
+                    </button>
+                    
+                </div>
+
+                <button id="upload" class="rounded-lg px-10 py-2 mb-2 bg-[#6248F4] font-semibold">Upload</button>
+            </div>
+            <!-- upload progress -->
+            <div id="uploadProgress" class="relative w-[90%] h-3 mx-auto col-span-full mt-5 rounded-full bg-[#09043C]">
+                <div id="uploadProgressInner" class="absolute top-0 left-0 h-full bg-[#6248f4] rounded-full transition-all"></div>
+            </div>
+        </section>
+
+        <!-- adding a tag-->
+        <div id="tag-form"
+            class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-50 bg-[#1c174d] shadow-[0_0_12px_2px] shadow-indigo-900 rounded-md w-[300px] px-10 py-5 text-center hidden">
+            <label class="mb-2" for="tag">Please add any tags.</label>
+            <input id="tag-input" class="bg-transparent border border-[#484378] rounded-sm p-2 mb-5 w-full text-sm" type="text" id="tag" placeholder="Enter a tag name">
+            <button id="add-tag" class="rounded-lg px-10 py-2 mb-2 bg-[#6248F4] font-semibold">Add</button>
+        </div>
+
+        
+        <!-- uploaded message -->
+        <section id="message" class="bg-[#1C174D] rounded-lg py-10 text-center w-[300px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/upload-file-6356689-5231763.png?f=webp" alt="" class="size-32 mx-auto">
+            <h1 class="font-bold text-lg">Thank You! Your file has been succesesfully uploded.</h1>
+        </section>
+    </main>
+    
+</body>
+</html>
